@@ -11,14 +11,12 @@ function App() {
       <Header />
       <div className='App'>
         <Switch>
-          <Route exact path='/'>
+          <Route  path='/'>
             <Home />
           </Route>
-          <Route
-            exact
-            path='/search/:emoji'
-            render={(props) => <Searchbar {...props} />}
-          />
+          <Route  path='/emoji/:emojiId' >
+            <Searchbar />
+          </Route>
           <Route path='*'>
             <Page404 />
           </Route>

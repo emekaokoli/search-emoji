@@ -5,14 +5,11 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-//import { emojiContext } from './utils/getEmoji';
 
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <emojiContext.Provider value={emojiContext}> */}
       <App />
-    {/* </emojiContext.Provider> */}
   </React.StrictMode>,
   document.getElementById('root'),
 );

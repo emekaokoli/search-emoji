@@ -1,1 +1,1 @@
-export const baseUrl = '/emoji/?q=';
+export const baseUrl = 'http://localhost:3001/emoji/';
