@@ -4,8 +4,8 @@ import useDebounce from '../utils/useDebounce';
 import SearchResults from '../components/SearchResult';
 import { getEmojiData } from '../utils/getEmojisData';
 
-const { emoji } = getEmojiData();
-const initialState = emoji.slice(0, 10);
+const emoji = getEmojiData();
+const initialState = emoji?.emoji?.slice(0, 10);
 
 const Search = () => {
   const [searchText, setSearchText] = useState('');
@@ -14,8 +14,8 @@ const Search = () => {
 
   useEffect(() => {
     if (debouncedSearchTerm) {
-      const results = emoji.filter((emoji) =>
-        emoji.keywords.includes(debouncedSearchTerm),
+      const results = emoji?.emoji?.filter((emoji) =>
+        emoji?.keywords?.includes(debouncedSearchTerm),
       );
       setFilteredEmojis([...results]);
     }
@@ -23,24 +23,28 @@ const Search = () => {
 
   return (
     <Container>
-      <Row>
+      <Row className='justify-content-md-center'>
         <Col>
+          <h1>Search Emoji</h1>
           <FormControl
             type='search'
             name={searchText}
             placeholder='Search emoji'
-            className='search'
+            className='search m-5'
             aria-label='Search'
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
             data-testid='search-input'
           />
+
+          {filteredEmojis?.length > 0 ? (
+            <Col>
+              <SearchResults data={filteredEmojis} />
+            </Col>
+          ) : (
+            <p>No results found</p>
+          )}
         </Col>
-        {filteredEmojis?.length > 0 ? (
-          <SearchResults data={filteredEmojis} />
-        ) : (
-          <p>No results found</p>
-        )}
       </Row>
     </Container>
   );

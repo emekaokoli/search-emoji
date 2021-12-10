@@ -2,13 +2,13 @@
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import Header from '../../src/components/Header';
+import Nav from '../components/Nav';
 
 afterEach(cleanup);
-test('"Ooloo" link points to the correct page', () => {
+test('link points to the correct page', () => {
   render(
     <Router>
-      <Header />
+      <Nav />
     </Router>,
   );
 
