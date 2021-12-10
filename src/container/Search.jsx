@@ -5,7 +5,7 @@ import SearchResults from '../components/SearchResult';
 import { getEmojiData } from '../utils/getEmojisData';
 
 const emoji = getEmojiData();
-const initialState = emoji?.emoji?.slice(0, 10);
+const initialState = emoji?.emoji?.slice(0, 10) || [];
 
 const Search = () => {
   const [searchText, setSearchText] = useState('');
