@@ -1,16 +1,18 @@
-# Search emoji app
+# The emoji searcher app.
 lets you search list emoji by keyword.
 
-# Cavet
-User exeprience is considered to show the list of emojis first before the user can now filter by considered the network perfomace of showin the entire emoji , I introduce pagination.
+# Architecture considerations.
+Considering the user's network speed, I improved the performance by not showing the entire emoji; I introduced pagination by showing an initial paginated list of 10 emojis. The user can search by keywords if they need to get more results. 
 
-I used a standard search in application instead of using the regular search button, by introdocing the concept of debouncing, which is a way of improving performation.
+Also, for a better user experience, I did not use the standard method of searching with a search button by introducing the concept of debouncing, which is a way of improving performance.
 
 ## to run the project
 
 In the project directory, you can run.
 
 ### `yarn install`
+
+To stae the application.
 ### `yarn start`
 
 Runs the app in the development mode.\
