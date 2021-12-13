@@ -12,7 +12,7 @@ In the project directory, you can run.
 
 ### `yarn install`
 
-To stae the application.
+To start the application.
 ### `yarn start`
 
 Runs the app in the development mode.\
