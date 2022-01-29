@@ -1,10 +1,10 @@
 # The emoji searcher app.
-lets you search list emoji by keyword.
+lets you search list of emoji by keyword.
 
 # Architecture considerations.
-Considering the user's network speed, I improved the performance by not showing the entire emoji; I introduced pagination by showing an initial paginated list of 10 emojis. The user can search by keywords if they need to get more results. 
+Considering the user's network speed, I improved the performance by not showing the entire emoji; I introduced pagination by showing initial list of 10 emojis. The user can search by keywords if they need to get more results. 
 
-Also, for a better user experience, I did not use the standard method of searching with a search button by introducing the concept of debouncing, which is a way of improving performance.
+Also, for a better user experience, I did not use the standard method of searching with a search button, but I introduced the concept of debouncing, which is a way of improving performance.
 
 ## to run the project
 

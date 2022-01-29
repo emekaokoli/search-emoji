@@ -5,21 +5,21 @@ import SearchResults from '../components/SearchResult';
 import { getEmojiData } from '../utils/getEmojisData';
 
 const emoji = getEmojiData();
-const initialState = emoji?.emoji?.slice(0, 10) || [];
+const initialState = emoji?.slice(0, 10) || []; //defensive programming by adding empty array if undefined or all fails;
 
 const Search = () => {
   const [searchText, setSearchText] = useState('');
   const [filteredEmojis, setFilteredEmojis] = useState([...initialState]);
-  const debouncedSearchTerm = useDebounce(searchText, 500);
+  const debouncedSearch = useDebounce(searchText, 500);
 
   useEffect(() => {
-    if (debouncedSearchTerm) {
-      const results = emoji?.emoji?.filter((emoji) =>
-        emoji?.keywords?.includes(debouncedSearchTerm),
+    if (debouncedSearch) {
+      const results = emoji?.filter((emoji) =>
+        emoji?.keywords?.includes(debouncedSearch),
       );
-      setFilteredEmojis([...results]);
+      setFilteredEmojis([...results]?.slice(0, 10) || []);
     }
-  }, [debouncedSearchTerm]);
+  }, [debouncedSearch]);
 
   return (
     <Container>
@@ -31,7 +31,7 @@ const Search = () => {
             name={searchText}
             placeholder='Search emoji'
             className='search m-5'
-            aria-label='Search'
+            aria-label='Search box'
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
             data-testid='search-input'
