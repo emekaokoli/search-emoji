@@ -14,10 +14,10 @@ const Search = () => {
 
   useEffect(() => {
     if (debouncedSearch) {
-      const results = emoji?.filter((emoji) =>
+      const result = emoji?.filter((emoji) =>
         emoji?.keywords?.includes(debouncedSearch),
       );
-      setFilteredEmojis([...results]?.slice(0, 10) || []);
+      setFilteredEmojis([...result]); //?.slice(0, 10) || []);
     }
   }, [debouncedSearch]);
 
@@ -25,7 +25,7 @@ const Search = () => {
     <Container>
       <Row className='justify-content-md-center'>
         <Col>
-          <h1>Search Emoji</h1>
+          <h1>Emoji Search</h1>
           <FormControl
             type='search'
             name={searchText}
